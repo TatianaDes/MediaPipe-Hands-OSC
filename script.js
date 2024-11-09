@@ -33,17 +33,17 @@ function onResults(results) {
       if (isRightHand === false) {
         let leftX = landmarks.map((val) => val.x);
         let leftY = landmarks.map((val) => val.y);
-        var messageLeftX = new OSC.Message("/lx/", ...leftX);
-        var messageLeftY = new OSC.Message("/ly/", ...leftY);
-        osc.send(messageLeftX);
-        osc.send(messageLeftY);
+        // var messageLeftX = new OSC.Message("/lx/", ...leftX);
+        // var messageLeftY = new OSC.Message("/ly/", ...leftY);
+        // osc.send(messageLeftX);
+        // osc.send(messageLeftY);
       } else {
         let rightX = landmarks.map((val) => val.x);
         let rightY = landmarks.map((val) => val.y);
-        var messageRightX = new OSC.Message("/rx/", ...rightX);
-        var messageRightY = new OSC.Message("/ry/", ...rightY);
+        var messageRightX = new OSC.Message("/input/Horizontal", rightX[0] - 0.5);
+        // var messageRightY = new OSC.Message("/ry/", ...rightY);
         osc.send(messageRightX);
-        osc.send(messageRightY);
+        // osc.send(messageRightY);
       }
     }
     canvasCtx.restore();
